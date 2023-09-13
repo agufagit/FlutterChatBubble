@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'bubble_type.dart';
 import 'clippers/chat_bubble_clipper_1.dart';
 import 'clippers/chat_bubble_clipper_10.dart';
+import 'clippers/chat_bubble_clipper_11.dart';
 import 'clippers/chat_bubble_clipper_2.dart';
 import 'clippers/chat_bubble_clipper_3.dart';
 import 'clippers/chat_bubble_clipper_4.dart';
@@ -17,6 +18,7 @@ import 'clippers/chat_bubble_clipper_9.dart';
 export 'bubble_type.dart';
 export 'clippers/chat_bubble_clipper_1.dart';
 export 'clippers/chat_bubble_clipper_10.dart';
+export 'clippers/chat_bubble_clipper_11.dart';
 export 'clippers/chat_bubble_clipper_2.dart';
 export 'clippers/chat_bubble_clipper_3.dart';
 export 'clippers/chat_bubble_clipper_4.dart';
@@ -76,15 +78,7 @@ class ChatBubble extends StatelessWidget {
   /// the selected clipper type.
   final EdgeInsetsGeometry? padding;
 
-  ChatBubble(
-      {this.clipper,
-      this.child,
-      this.margin,
-      this.elevation,
-      this.backGroundColor,
-      this.shadowColor,
-      this.alignment,
-      this.padding});
+  ChatBubble({this.clipper, this.child, this.margin, this.elevation, this.backGroundColor, this.shadowColor, this.alignment, this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -166,6 +160,12 @@ class ChatBubble extends StatelessWidget {
         return EdgeInsets.only(top: 15, bottom: 10, left: 10, right: 15);
       } else {
         return EdgeInsets.only(top: 15, bottom: 10, left: 15, right: 10);
+      }
+    } else if (clipper is ChatBubbleClipper11) {
+      if ((clipper as ChatBubbleClipper11).type == BubbleType.sendBubble) {
+        return EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 20);
+      } else {
+        return EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 10);
       }
     }
 
